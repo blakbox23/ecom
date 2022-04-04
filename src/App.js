@@ -3,6 +3,7 @@ import './App.css';
 import ProductsList from './components/ProductsList';
 import ProductDisplay from './components/ProductDisplay';
 import Cart from './components/Cart';
+import MiniCart from './components/MiniCart';
 
 function App() {
   return (
@@ -10,7 +11,8 @@ function App() {
       <Nav />
       {/* <ProductsList /> */}
       {/* <ProductDisplay /> */}
-       <Cart />
+       {/* <Cart /> */}
+       <MiniCart />
     </div>
   );
 }
