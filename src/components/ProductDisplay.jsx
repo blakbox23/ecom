@@ -5,18 +5,18 @@ import ProductD from '../assets/ProductD.png'
 export class ProductDisplay extends Component {
   render() {
     return (
-      <div className="product-display flex border">
+      <div className="product-display flex">
           <div className="mini-images flex">
             <div className="mini-prod-image"><img src={ProductD} alt="prod" /> </div>
             <div className="mini-prod-image"><img src={ProductD} alt="prod" /> </div>
             <div className="mini-prod-image"><img src={ProductD} alt="prod" /> </div>
           </div>
 
-          <div className="main-prod-display border flex">
-              <div className="product-display-image border">
+          <div className="main-prod-display flex">
+              <div className="product-display-image">
                 <img src={ProductD} alt="prod" />
               </div>
-              <div className="product-display-text flex border">
+              <div className="product-display-text flex">
                 <div>
                     <p className="brand-name">Apollo</p>
                     <p className="brand-prod-name">Running Short</p>
