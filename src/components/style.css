@@ -20,6 +20,9 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 3rem;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
 }
 .links p {
     margin-right: 1rem;
@@ -33,6 +36,7 @@
 }
 .shopping-cart {
     width: 20px;
+    cursor: pointer;
 }
 .shopping-cart img {
     width: 100%;
@@ -212,15 +216,15 @@
 
 /* MINI-CART */
 .mini-cart-item {
-    width: 30%;
+    width: 100%;
     border-top: 1px solid #E5E5E5;;
     justify-content: space-between;
-    height: 8rem;
+    height: 7rem;
     padding-top: 1em;
     margin-top: 1em;
 }
 .mini-cart-image {
-    width: 7rem;
+    width: 6rem;
     margin-left: 0.5em;
 }
 .mini-cart-image img {
@@ -232,6 +236,7 @@
     color: #1D1F22;
     font-size: 1rem;
     margin: 0;
+    font-weight: 300;
 }
 .mini-cart-brand {
     margin-bottom: -1rem;
@@ -241,6 +246,7 @@
     font-weight: 400;
     font-size: 1rem;
     margin: 0;
+    font-weight: 300;
 }
 .mini-cart-counter {
     flex-direction: column;
@@ -264,4 +270,34 @@
     font-family: 'Raleway', sans-serif;
     font-weight: 500;
     font-size: 1rem;
+}
+.mini-carttexts {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+}
+.mini-cart-total {
+    justify-content: space-between;
+    margin: 2.5em 0;
+    font-size: 1rem;
+}
+.mini-cart-buttons {
+    justify-content: space-between;
+}
+.mini-cart-buttons button {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 1em;
+    width: 8.7rem;
+    outline: none;
+    border: none
+}
+.mini-cart-buttons button:first-child {
+    background-color: #fff;
+    border: 1px solid black;
+}
+.mini-cart-buttons button:nth-child(2) {
+    background-color: #5ECE7B;
+    color: #fff;
 }
