@@ -7,8 +7,8 @@ export class ProductItem extends Component {
   render() {
     return (
       <div className="product-card">
-              <img src={ProductD} alt="" />
-              <p className="product-name">Apollo Running Short</p>
+              <img src={this.props.pic} alt="" />
+              <p className="product-name">{this.props.brand} {this.props.name}</p>
               <p className="product-cost">$500.00</p>
       </div>
     )

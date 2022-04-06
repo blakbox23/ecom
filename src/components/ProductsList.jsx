@@ -1,23 +1,62 @@
 import React, { Component } from 'react'
+import {gql} from "@apollo/client";
+import { graphql } from '@apollo/client/react/hoc';
 import ProductItem from './ProductItem'
 import './style.css';
 
+const cat = 'tech'
+
+const getCategoryProducts=gql`
+{
+  category(input: {title: "${cat}"}){
+    name
+    products{
+      id
+      name
+      brand
+      gallery
+      attributes{
+        name
+        
+      }
+    }
+  }
+}`
+
 export class ProductsList extends Component {
+  displayProducts(){
+    let data = this.props.data;
+    if(data.loading){
+      return(<div>Loading Producra</div>)
+    }else{
+      return data.category.products.map(product=>{
+        console.log(product.gallery.length);
+        return(
+          <ProductItem 
+          brand = {product.brand}
+          name= {product.name}
+          pic={product.gallery[0]}
+           />
+        )
+      }
+      )
+    }
+  }
+  capitalize(cat) {
+    return cat[0].toUpperCase() + cat.slice(1).toLowerCase();
+  }
   render() {
-    return (
+    console.log(this.props.data.category);
+
+    return (      
       <div>
-          <div className="category-name">Category name</div>
+          <div className="category-name">{this.capitalize(cat)}</div>
         <div className="product-list flex">
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
-          <ProductItem />
+          {this.displayProducts()}
           </div>
       </div>
     )
   }
 }
 
-export default ProductsList
+export default graphql(getCategoryProducts)(ProductsList);
