@@ -1,14 +1,12 @@
 import Nav from './components/nav'
+import { Routes, Route } from 'react-router-dom'
 import './App.css';
 import ProductsList from './components/ProductsList';
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  gql
-
 } from "@apollo/client";
-
 import ProductDisplay from './components/ProductDisplay';
 import Cart from './components/Cart';
 import MiniCart from './components/MiniCart';
@@ -18,31 +16,33 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 
 });
-// client.query({
-//     query: gql`{
-//       category(input: {title: "clothes"}){
-//         name
-//         products{
-//           name
-//           attributes{
-//             name
-            
-//           }
-//         }
-//       }
-//     }
-//     `
-//   }).then(result => console.log(result.data.category.name));
 
 function App() {
+
+  const routes = [
+    {
+      path: '/',
+      component: <ProductsList cat={'all'}/>,
+    },
+    {
+      path: '/clothes',
+      component: <ProductsList cat={'clothes'} />,
+    },
+    {
+      path: '/tech',
+      component: <ProductsList cat={'tech'}/>,
+    }
+  ]
+
   return (  
   <ApolloProvider client={client}>
     <div className="App">
       <Nav />
-      <ProductsList />
-      {/* <ProductDisplay /> */}
-       {/* <Cart /> */}
-       {/* <MiniCart /> */}
+      <Routes>
+        {routes.map(({ path, component, category }) => (
+          <Route path={path} key={path} element={component} category={category}/>
+        ))}
+      </Routes>
     </div>
   </ApolloProvider>
   );

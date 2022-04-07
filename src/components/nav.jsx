@@ -4,6 +4,7 @@ import logo from '../assets/logo.png'
 import cart from '../assets/shopping-cart.png'
 import Modal from 'react-modal'
 import MiniCart from './MiniCart';
+import { NavLink } from 'react-router-dom'
 
 export class Nav extends Component {
   state = {
@@ -14,13 +15,38 @@ export class Nav extends Component {
      this.setState({modalIsOpen: true});
     }
 
+
   render() {
+    // const cat = 'all'
+    // const categoryPagePath = `/${cat}`
+
+    const navLinks = [
+      {
+        id: '1',
+        text: 'ALL',
+        path: '/',
+      },
+      {
+        id: '2',
+        text: 'CLOTHES',
+        path: '/clothes',
+      },
+      {
+        id: '3',
+        text: 'TECH',
+        path: '/tech',
+      },
+    ]
     return (
       <div className="nav flex">
-          <div className="links flex">
-            <p>WOMEN</p>
-            <p>MEN</p>
-            <p>KIDS</p>
+          <div className="flex links">
+            {navLinks.map(({ id, text, path }) => (
+              <NavLink to={path}>
+                <div key={id}>
+                  <p>{text}</p>
+                </div>
+              </NavLink>
+            ))}
           </div>
           <div className="logo">
               <img src={logo} alt="Logo" />

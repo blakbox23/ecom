@@ -4,7 +4,7 @@ import { graphql } from '@apollo/client/react/hoc';
 import ProductItem from './ProductItem'
 import './style.css';
 
-const cat = 'tech'
+const cat = 'all'
 
 const getCategoryProducts=gql`
 {
@@ -30,7 +30,6 @@ export class ProductsList extends Component {
       return(<div>Loading Producra</div>)
     }else{
       return data.category.products.map(product=>{
-        console.log(product.gallery.length);
         return(
           <ProductItem 
           brand = {product.brand}
